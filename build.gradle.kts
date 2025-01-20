@@ -14,8 +14,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("com.fasterxml.jackson.core:jackson-core:2.18.2")
-implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
-implementation("com.fasterxml.jackson.core:jackson-annotations:2.18.2")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.18.2")
 }
 
 tasks.test {
@@ -31,13 +31,13 @@ application {
 }
 
 graalvmNative {
-	/*
-	binaries {
-		named("main") {
-			buildArgs.add("--initialize-at-build-time=kotlin")
-		}
-	}
-	*/
+    /*
+    binaries {
+        named("main") {
+            buildArgs.add("--initialize-at-build-time=kotlin")
+        }
+    }
+    */
     binaries.all {
         resources.autodetect()
     }
