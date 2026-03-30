@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "2.3.20"
     application
-    id("org.graalvm.buildtools.native") version "0.11.5"
+    id("org.graalvm.buildtools.native") version "1.0.0"
 }
 
 group = "org.example"
