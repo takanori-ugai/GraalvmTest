@@ -13,9 +13,9 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(platform("com.fasterxml.jackson:jackson-bom:2.21.3"))
-    implementation("com.fasterxml.jackson.core:jackson-databind")
-    implementation("com.fasterxml.jackson.core:jackson-core")
+    implementation(platform("tools.jackson:jackson-bom:3.1.4"))
+    implementation("tools.jackson.core:jackson-databind")
+    implementation("tools.jackson.core:jackson-core")
     implementation("com.fasterxml.jackson.core:jackson-annotations")
 }
 

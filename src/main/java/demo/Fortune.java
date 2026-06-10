@@ -1,8 +1,8 @@
 package demo;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,16 +39,16 @@ public class Fortune {
      * "fortunes.json". This constructor processes the JSON data and populates
      * the list of fortunes.
      *
-     * @throws JsonProcessingException if there is an error processing the JSON
+     * @throws JacksonException if there is an error processing the JSON
      * data.
      */
-  public Fortune() throws JsonProcessingException {
+  public Fortune() throws JacksonException {
         // Scan the file into the array of fortunes
         String json = readInputStream(ClassLoader.getSystemResourceAsStream("fortunes.json"));
         ObjectMapper omap = new ObjectMapper();
         JsonNode root = omap.readTree(json);
         JsonNode data = root.get("data");
-        Iterator<JsonNode> elements = data.elements();
+        Iterator<JsonNode> elements = data.iterator();
         while (elements.hasNext()) {
             JsonNode quote = elements.next().get("quote");
             fortunes.add(quote.asText());
@@ -108,10 +108,10 @@ public class Fortune {
      *
      * @param args the command line arguments.
      * @throws InterruptedException if the thread is interrupted while sleeping.
-     * @throws JsonProcessingException if there is an error processing the JSON
+     * @throws JacksonException if there is an error processing the JSON
      * data.
      */
-    public static void main(String[] args) throws InterruptedException, JsonProcessingException {
+    public static void main(String[] args) throws InterruptedException, JacksonException {
         Fortune fortune = new Fortune();
         fortune.printRandomFortune();
     }
