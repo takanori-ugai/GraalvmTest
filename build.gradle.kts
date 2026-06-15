@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(platform("tools.jackson:jackson-bom:3.1.4"))
+    implementation(platform("tools.jackson:jackson-bom:3.2.0"))
     implementation("tools.jackson.core:jackson-databind")
     implementation("tools.jackson.core:jackson-core")
     implementation("com.fasterxml.jackson.core:jackson-annotations")
